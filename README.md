@@ -4,7 +4,7 @@ Angular application created to manage office attendance and presence tracking.
 
 The project allows users to visualize a monthly calendar, mark office presence, and track attendance history.
 
-
+![Demo](screenshots/demo-calendar.gif)
 
 ## ✨ Features
 
