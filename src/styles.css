@@ -1,1 +1,153 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* ===========================
+   🌙 ESTILO PARA MODO ESCURO
+   =========================== */
+/* Forçar cor do texto digitado */
+body.dark-mode .mat-mdc-input-element {
+  color: #ffffff !important; /* Texto branco */
+  caret-color: #f8bbd0 !important; /* Cursor rosa */
+}
+
+/* Placeholder e label */
+body.dark-mode .mat-mdc-floating-label {
+  color: #f8bbd0 !important; /* Label rosa */
+}
+
+/* Borda do campo */
+body.dark-mode .mat-mdc-form-field-outline {
+  color: #ab47bc !important; /* Roxo */
+  border-color: #ab47bc !important;
+}
+
+/* Mantenha o card escuro */
+body.dark-mode mat-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Títulos */
+body.dark-mode .title {
+  color: #ffffff;
+}
+
+body.dark-mode .subtitle {
+  color: #cccccc;
+}
+
+/* Ícone dentro do input */
+body.dark-mode .mat-icon {
+  color: #ab47bc !important;
+}
+
+/* Botão Entrar no modo escuro */
+body.dark-mode .login-btn {
+  background-color: #ab47bc !important;
+  color: #fff !important;
+}
+
+body.dark-mode .login-btn:hover {
+  transform: scale(1.04); /* Leve aumento ao passar o mouse */
+}
+
+/* ... demais DASH */
+body.dark-mode .calendar-container {
+  background: #1e1e1e;
+  color: #e1bee7;
+}
+
+body.dark-mode .calendar-title {
+  color: #e1bee7;
+}
+
+body.dark-mode .calendar-subtitle {
+  color: #ce93d8;
+  font-weight: bold;
+}
+body.dark-mode .day-name {
+  color: #f3e5f5;
+  font-weight: bold;
+}
+
+body.dark-mode .calendar-header {
+  color: #e1bee7;
+}
+
+body.dark-mode .presence-info {
+  background: #4a148c;
+  color: #f3e5f5;
+}
+
+body.dark-mode .calendar-day {
+  color: #f3e5f5;
+}
+
+body.dark-mode .calendar-day:hover {
+  background: #6a1b9a;
+}
+
+body.dark-mode .calendar-day.marked {
+  background: #ab47bc;
+  color: #fff;
+}
+
+body.dark-mode .scan-btn {
+  background: #ab47bc;
+  color: #fff;
+}
+
+body.dark-mode .scan-btn:hover {
+  transform: scale(1.04); /* Leve aumento ao passar o mouse */
+}
+
+body.dark-mode .logout-btn {
+  color: #e1bee7;
+}
+
+body.dark-mode .progress-text {
+  color: #e1bee7;
+}
+
+.theme-switch {
+  display: block;
+  margin-bottom: 5px;
+  color: #4a148c;
+  font-weight: bold;
+}
+
+body.dark-mode .theme-switch {
+  color: #e1bee7;
+}
+
+body.dark-mode .scanner-container {
+  background: #2c2c2c;
+  border: 1px solid #ce93d8;
+}
+
+body.dark-mode .scanner-container button {
+  color: #ce93d8;
+}
+
+body.dark-mode .scanner-container button:hover {
+  background: #6a1b9a;
+  color: #fff;
+}

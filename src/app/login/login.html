@@ -1,0 +1,64 @@
+﻿<!--
+  Login page layout.
+  Centers the login card on the screen.
+-->
+<div class="login-page">
+  <div class="login-container">
+    <!--
+      Main login card.
+    -->
+    <mat-card>
+      <!--
+        Theme toggle container.
+        Aligns the dark mode switch to the top-right.
+      -->
+      <div class="toggle-container">
+        <mat-slide-toggle
+          [checked]="isDarkMode"
+          (change)="toggleDarkMode($event.checked)"
+          class="theme-switch"
+        >
+        </mat-slide-toggle>
+      </div>
+
+      <!--
+        Icon / image section at the top of the login card.
+      -->
+      <div class="icon-container">
+        <div>
+          <img
+            class="image-container"
+            src="calendar2.png"
+            alt="Calendar illustration"
+          />
+        </div>
+      </div>
+
+      <!--
+        Welcome title and application name.
+      -->
+      <h2 class="title">Welcome</h2>
+      <p class="subtitle">My Office Calendar</p>
+
+      <!--
+        Username input field.
+        Uses two-way binding to store the username.
+      -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>User Login</mat-label>
+
+        <input matInput [(ngModel)]="username" />
+
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <!--
+        Login button.
+        Triggers authentication logic.
+      -->
+      <button mat-raised-button class="full-width login-btn" (click)="login()">
+        Sign in
+      </button>
+    </mat-card>
+  </div>
+</div>

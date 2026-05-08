@@ -1,0 +1,322 @@
+/* ======================================================
+   PAGE LAYOUT
+   Centers the calendar card on the screen
+   LAYOUT DA PÁGINA
+   Centraliza o card do calendário na tela
+   ====================================================== */
+
+.calendar-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf7f9;
+}
+
+/* ======================================================
+   MAIN CONTAINER
+   Card that holds the whole dashboard
+   CONTAINER PRINCIPAL
+   Card que contém todo o dashboard
+   ====================================================== */
+
+.calendar-container {
+  width: 100%;
+  max-width: 450px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+/* ======================================================
+   TITLE AND SUBTITLE
+   ====================================================== */
+
+.calendar-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #4a148c;
+  margin-bottom: 8px;
+}
+
+.calendar-subtitle {
+  font-size: 1rem;
+  color: #6a1b9a;
+  margin-bottom: 16px;
+}
+
+/* ======================================================
+   TOP MENU (3 DOTS)
+   MENU SUPERIOR (TRÊS PONTINHOS)
+   ====================================================== */
+
+.top-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+
+  position: relative;
+  z-index: 10; /* Ensures menu is above content */
+}
+
+.top-menu button {
+  color: #4a148c;
+}
+
+.mat-menu-panel {
+  background: #f3e5f5;
+}
+
+.mat-menu-item {
+  font-weight: 500;
+}
+
+/* ======================================================
+   CALENDAR HEADER (MONTH NAVIGATION)
+   MENU SUPERIOR (TRÊS PONTINHOS)
+   ====================================================== */
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 500;
+  color: #4a148c;
+}
+
+/* ======================================================
+   PROGRESS BAR
+   BARRA DE PROGRESSO
+   ====================================================== */
+
+mat-progress-bar {
+  margin: 16px 0;
+}
+
+.progress-text {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #4a148c;
+}
+
+/* ======================================================
+   ATTENDANCE SUMMARY
+   RESUMO DE PRESENÇA
+     - Shows total days present, absent, and on leave
+   ====================================================== */
+
+.presence-info {
+  background: #f3e5f5;
+  color: #4a148c;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* ======================================================
+   CALENDAR GRID
+   GRADE DO CALENDÁRIO
+   ====================================================== */
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.day-name {
+  font-weight: bold;
+  color: #6a1b9a;
+  text-align: center;
+}
+
+/* ======================================================
+   CALENDAR DAY STATES
+    ESTADOS DO DIA NO CALENDÁRIO
+      - marked: days the user has marked as present
+      - holiday: official holidays
+      - today: current day
+      - disabled: days outside the current month
+   ====================================================== */
+
+.calendar-day {
+  text-align: center;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.calendar-day:hover {
+  background: #f3e5f5;
+}
+
+.calendar-day.marked {
+  background: #1e8e5a;
+  color: #fff;
+  font-weight: bold;
+}
+
+.calendar-day.holiday {
+  background: #f3b5d8;
+  color: #5a2a4a;
+  font-weight: 500;
+}
+
+.calendar-day.marked.holiday {
+  background-color: #1e8e5a;
+  color: #fff;
+}
+
+.calendar-day.today {
+  border: 2px solid #1e8e5a;
+  font-weight: 600;
+}
+
+.calendar-day.disabled {
+  background-color: transparent;
+  color: #777;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ======================================================
+   SCAN BUTTON
+   ====================================================== */
+
+.scan-btn {
+  width: 100%;
+  background: #f3b5d8;
+  color: #4a148c;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* ======================================================
+   QR CODE OVERLAY
+   SOBREPOSIÇÃO DO QR CODE
+   ====================================================== */
+
+.scanner-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: overlayFadeIn 0.2s ease-out;
+}
+
+.scanner-modal {
+  background: #fbefff;
+  border-radius: 20px;
+  padding: 16px;
+
+  width: 90%;
+  max-width: 360px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  animation: modalScaleIn 0.25s ease-out;
+}
+
+/* QR Scanner itself - O próprio leitor de QR Code*/
+.scanner-modal zxing-scanner {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #6a1b9a;
+}
+
+.close-btn {
+  width: 100%;
+  color: #6a1b9a;
+  font-weight: bold;
+}
+
+/* ======================================================
+   ANIMATIONS
+   ====================================================== */
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ======================================================
+   RESPONSIVE (MOBILE)
+   ====================================================== */
+
+@media (max-width: 480px) {
+  .calendar-container {
+    max-width: 95%;
+    padding: 16px;
+    margin: 16px auto;
+  }
+
+  .calendar-title {
+    font-size: 1.4rem;
+  }
+
+  .calendar-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .calendar-header span {
+    font-size: 0.9rem;
+  }
+
+  .calendar-grid {
+    gap: 6px;
+  }
+
+  .calendar-day {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .scan-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  /* ======================================================
+   MOBILE FIX
+   Prevents top menu from being cut off
+   ====================================================== */
+
+  .calendar-page {
+    align-items: flex-start; /* Stop vertical centering on mobile */
+    padding-bottom: 16px;
+    padding-top: env(safe-area-inset-top, 16px);
+  }
+}

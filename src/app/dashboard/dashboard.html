@@ -1,0 +1,126 @@
+<!--
+  Main dashboard page.
+  Centers the calendar card on the screen.
+-->
+<div class="calendar-page">
+  <div class="calendar-container">
+    <!--
+      Top menu (three dots).
+      Contains navigation and logout actions.
+    -->
+    <div class="top-menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <!-- Navigate to history screen -->
+        <button mat-menu-item (click)="openHistory()">
+          <mat-icon>calendar_today</mat-icon>
+          <span>History</span>
+        </button>
+
+        <!-- Logout current user -->
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Sign Out</span>
+        </button>
+      </mat-menu>
+    </div>
+
+    <!--
+      Page title and greeting message.
+    -->
+    <h2 class="calendar-title">My Office Calendar</h2>
+    <p class="calendar-subtitle">{{ greetingMessage }}</p>
+
+    <!--
+      Calendar header with month navigation.
+    -->
+    <div class="calendar-header">
+      <button mat-icon-button (click)="changeMonth(-1)">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+
+      <span>{{ currentMonthName }} {{ currentYear }}</span>
+
+      <button mat-icon-button (click)="changeMonth(1)">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+    <!--
+      Monthly attendance progress.
+    -->
+    <div class="progress-container">
+      <mat-progress-bar
+        mode="determinate"
+        [value]="presencePercentage"
+      ></mat-progress-bar>
+
+      <span class="progress-text"> {{ presencePercentage }}% </span>
+    </div>
+
+    <!--
+      Attendance summary (current / goal).
+    -->
+    <p class="presence-info">
+      <strong>{{ getCurrentMonthPresenceCount() }}</strong>
+      /
+      <strong>{{ presenceGoal }}</strong>
+      dias
+    </p>
+
+    <!--
+      Calendar grid.
+      Shows weekday labels and calendar days.
+    -->
+    <div class="calendar-grid">
+      <!-- Weekday labels -->
+      <div class="day-name" *ngFor="let day of weekDays">{{ day }}</div>
+
+      <!-- Calendar day cells -->
+      <div
+        class="calendar-day"
+        *ngFor="let day of daysInMonth"
+        [class.marked]="presenceDays.includes(day.fullDate || '')"
+        [class.holiday]="feriados.includes(day.fullDate || '')"
+        [class.today]="isToday(day.fullDate)"
+        [class.padding]="!day.fullDate"
+        [class.disabled]="isFutureDay(day.fullDate)"
+        (click)="canToggleDay(day.fullDate) && togglePresence(day.fullDate!)"
+      >
+        <!-- Render date number only for real days -->
+        <ng-container *ngIf="day.date"> {{ day.date }} </ng-container>
+      </div>
+    </div>
+
+    <!--
+      Button to open QR Code scanner.
+    -->
+    <button mat-raised-button class="scan-btn" (click)="showScanner = true">
+      <mat-icon>qr_code_scanner</mat-icon>
+      Scan QR Code
+    </button>
+
+    <!--
+      QR Code scanner overlay.
+      Visible only when showScanner is true.
+    -->
+    <div *ngIf="showScanner" class="scanner-overlay">
+      <div class="scanner-modal">
+        <!-- ZXing QR Code scanner component -->
+        <zxing-scanner (scanSuccess)="handleQrCode($event)"></zxing-scanner>
+
+        <!-- Close scanner -->
+        <button
+          mat-stroked-button
+          class="close-btn"
+          (click)="showScanner = false"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

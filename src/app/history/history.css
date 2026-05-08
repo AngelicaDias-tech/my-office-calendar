@@ -1,0 +1,94 @@
+/* ======================================================
+   PAGE LAYOUT
+   Full screen container that centers the history card
+   ====================================================== */
+
+.history-page {
+  height: 100vh; /* Occupies full viewport height */
+  width: 100vw; /* Occupies full viewport width */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+  background-color: #faf7f9;
+}
+
+/* ======================================================
+   MAIN CARD
+   Container that holds the history content (chart + header)
+   ====================================================== */
+
+.history-card {
+  width: 100%;
+  max-width: 500px;
+  min-height: 520px; /* Ensures minimum height for chart */
+  max-height: 85vh; /* Prevents overflow on small screens */
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 16px 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================================================
+   HEADER
+   Mobile-like app header with back button and title
+   ====================================================== */
+
+.history-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Back | Title | Spacer */
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Page title */
+.history-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6a1b9a; /* App primary purple */
+}
+
+/* Spacer used to balance the header layout */
+.header-spacer {
+  width: 40px;
+}
+
+/* Back button styling */
+.back-btn {
+  color: #6a1b9a;
+}
+
+.back-btn:hover {
+  background-color: rgba(106, 27, 154, 0.08);
+}
+
+/* ======================================================
+   CHART AREA
+   Container for the bar chart component
+   ====================================================== */
+
+.chart-wrapper {
+  flex: 1; /* Takes remaining vertical space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  overflow-x: auto; /* Safety for small screens */
+}
+
+/* ======================================================
+   MOBILE FIX
+   Prevents chart from being vertically cut
+   ====================================================== */
+
+@media (max-width: 480px) {
+  .history-page {
+    align-items: flex-start; /* Stop vertical centering on mobile */
+    padding-top: env(safe-area-inset-top, 16px);
+    padding-bottom: 16px;
+  }
+}

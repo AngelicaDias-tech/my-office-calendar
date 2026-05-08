@@ -1,0 +1,174 @@
+/* ======================================================
+   PAGE LAYOUT
+   Full-screen container centered both vertically and horizontally
+   ====================================================== */
+
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf7f9;
+}
+
+/* ======================================================
+   MAIN CONTAINER
+   Wraps the login card and controls max width
+   ====================================================== */
+
+.login-container {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+}
+
+/* ======================================================
+   LOGIN CARD
+   Main card holding all login content
+   ====================================================== */
+
+mat-card {
+  width: 100%;
+  min-height: 450px;
+  max-height: 90vh; /* Mobile safety */
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 3px 15px rgba(3, 3, 3, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ======================================================
+   THEME TOGGLE
+   Dark mode switch aligned to top-right
+   ====================================================== */
+
+.toggle-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.theme-switch {
+  transform: scale(0.8);
+  transform-origin: right;
+}
+
+/* ======================================================
+   ICON / IMAGE AREA
+   Branding element on top of the login card
+   ====================================================== */
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.image-container {
+  width: 60px;
+  transform-origin: center;
+  will-change: transform;
+  animation: pulse 2s infinite;
+}
+
+/* Optional icon styling (kept for future use) */
+.login-icon {
+  font-size: 48px;
+  color: #4a148c;
+}
+
+/* ======================================================
+   TITLE AND SUBTITLE
+   ====================================================== */
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* ======================================================
+   FORM ELEMENTS
+   Input field and button full width
+   ====================================================== */
+
+.full-width {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* ======================================================
+   LOGIN BUTTON
+   Primary call-to-action
+   ====================================================== */
+
+.login-btn {
+  min-height: 52px;
+  padding: 14px 0;
+  font-size: 18px;
+
+  font-weight: bold;
+  border-radius: 30px;
+  background: #6a1b9a !important;
+  color: #ffffff !important;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.03);
+}
+
+/* ======================================================
+   GLOBAL RESET
+   ====================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ======================================================
+   ANIMATIONS
+   Subtle pulse animation for the login image
+   ====================================================== */
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+/* ======================================================
+   RESPONSIVE
+   Small screens adjustments
+   ====================================================== */
+
+@media (max-width: 400px) {
+  mat-card {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

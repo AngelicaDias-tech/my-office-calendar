@@ -1,0 +1,46 @@
+<!--
+  Attendance history page.
+  Displays a bar chart with monthly attendance percentages.
+-->
+<div class="history-page">
+  <div class="history-card">
+    <!--
+      Top header bar.
+      Contains back navigation and page title.
+    -->
+    <div class="history-header">
+      <!-- Back button: navigates to Dashboard -->
+      <button
+        mat-icon-button
+        class="back-btn"
+        aria-label="Back"
+        (click)="goBack()"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <!-- Page title -->
+      <span class="history-title"> Attendance History </span>
+
+      <!--
+        Spacer element used to keep title centered.
+        Keeps layout symmetrical.
+      -->
+      <span class="header-spacer"></span>
+    </div>
+
+    <!--
+      Chart container.
+      Renders the monthly attendance bar chart using ng2-charts.
+    -->
+    <div class="chart-wrapper">
+      <canvas
+        baseChart
+        type="bar"
+        [data]="barChartData"
+        [options]="barChartOptions"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>
