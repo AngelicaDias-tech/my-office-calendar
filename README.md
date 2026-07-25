@@ -22,18 +22,6 @@ This application allows users to:
 - Chart.js
 - LocalStorage
 
----
-
-## 📷 Screenshots
-
-![Login](screenshots/Login1.png)
-
-![Calendar](screenshots/Calendar1.png)
-
-![History](screenshots/history1.png)
-
----
-
 ## ▶️ Running the project
 
 ```bash
