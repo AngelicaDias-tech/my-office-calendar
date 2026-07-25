@@ -1,35 +1,57 @@
-# My Office Calendar
+# 📅 My Office Calendar
 
-Angular application created to manage office attendance and presence tracking.
+A responsive Angular application for managing office attendance and tracking in-person workdays.
 
-The project allows users to visualize a monthly calendar, mark office presence, and track attendance history.
+This application allows users to:
 
-![Demo](./demo-calendar.gif)
+- Mark office attendance
+- View a monthly calendar
+- Track attendance percentage
+- View attendance history
+- Store data locally using LocalStorage
 
-## ✨ Features
+---
 
-- Monthly calendar view
-- Office presence marking
-- Attendance percentage tracking
-- Presence history visualization
-- Local storage data persistence
-- Responsive layout for desktop and mobile
-
-## 🛠️ Tech Stack
+## 🚀 Technologies
 
 - Angular
 - TypeScript
 - Angular Material
-- HTML5 / CSS3
+- HTML5
+- CSS3
 - Chart.js
 - LocalStorage
 
-## 🚀 Getting Started
+---
+
+## 📷 Screenshots
+
+![Login](screenshots/Login1.png)
+
+![Calendar](screenshots/Calendar1.png)
+
+![History](screenshots/history1.png)
+
+---
+
+## ▶️ Running the project
 
 ```bash
 npm install
 ng serve
 ```
+
+Open:
+
+```
+http://localhost:4200
+```
+
+---
+
+## 📌 About
+
+This project was created to practice Angular concepts, reusable components, responsive layouts and data visualization.
 
 ## 📸 Screenshots
 
